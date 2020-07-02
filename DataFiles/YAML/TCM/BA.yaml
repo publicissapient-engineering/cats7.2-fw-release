@@ -1,0 +1,162 @@
+testcases:
+- id: Launch
+  name: Launch
+  teststeps:
+  - or: Custom
+    action: LaunchSite	
+    testdata: $BA.URL.EN$
+    description: Launch the Site <$BA.URL.EN$>		
+  - or: Custom
+    action: PageLoadWait
+    description: PageLoadWait			
+  - or: BA
+    page: Navigation	
+    elementRef: menuChangeLang
+    action: Click
+    description: Click on <menuChangeLang>
+  - or: BA
+    page: Navigation
+    elementRef: lnkChangeLang
+    action: Click
+    description: Click on <lnkChangeLang>			
+  - or: BA
+    page: ChangeCtry
+    elementRef: country
+    action: SelectElementByText
+    testdata: $BA.Country.RU
+    description: Select the <$BA.Country.RU> from <country>			
+  - or: BA
+    page: ChangeCtry
+    elementRef: language
+    action: SelectElementByText
+    testdata: $BA.Language.RU
+    description: Select the <$BA.Language.RU> from <language>			
+  - or: BA
+    page: ChangeCtry
+    elementRef: submit
+    action: Click
+    description: Click on <submit>			
+  - or: BA
+    page: ChangeCtry
+    elementRef: submit
+    action: PageLoadWait
+    description: PageLoadWait			
+  - controlflow: IF
+    or: BA
+    page: ChangeConfirm
+    elementRef: heading
+    action: VerifyElementPresent
+    description: Verify the <heading> is Present			
+  - controlflow: END IF
+    or: BA
+    page: ChangeConfirm
+    elementRef: proceed
+    action: Click
+    description: Click on <proceed>			
+- id: Quit
+  name: Quit
+  teststeps:
+  - or: Custom
+    action: quit
+- id: VerifyHeader
+  name: VerifyHeader
+  teststeps:
+  - or: BA
+    page: Navigation
+    elementRef: FlightAndHoliday	
+    action: VerifyText		
+    testdata: $BA.FlightAndHoliday.RU		
+    description: Verify the Text of <FlightAndHoliday> is as expected
+  - or: BA
+    page: Navigation
+    elementRef: MngMyBooking
+    action: VerifyText		
+    testdata: $BA.MngMyBooking.RUf
+    description: Verify the Text of <MngMyBooking> is as expected
+  - or: BA
+    page: Navigation
+    elementRef: Info
+    action: VerifyText	
+    testdata: $BA.Info.RU	
+    description: Verify the Text of <Info> is as expected
+  - or: BA
+    page: Navigation
+    elementRef: ExecutiveClub
+    action: VerifyText
+    testdata: $BA.ExecutiveClub.RU
+    description: Verify the Text of <ExecutiveClub> is as expected
+  - or: BA
+    page: Navigation
+    elementRef: BizzTravel
+    action: VerifyText 
+    testdata: $BA.BizzTravel.RU
+    description: Verify the Text of <BizzTravel> is as expected
+- id: VerifyFooter
+  name: VerifyFooter
+  teststeps:
+  - or: BA
+    page: Footer
+    elementRef: MobileSite
+    action: VerifyText
+    testdata: $BA.MobileSite.RU		
+    description: Verify the Text of <MobileSite> is as expected
+  - or: BA
+    page: Footer
+    elementRef: HelpAndContact
+    action: VerifyText
+    testdata: $BA.HelpAndContact.RU
+    description: Verify the Text of <HelpAndContact> is as expected
+  - or: BA
+    page: Footer
+    elementRef: Accessibility
+    action: VerifyText
+    testdata: $BA.Accessibility.RU
+    description: Verify the Text of <Accessibility> is as expected
+  - or: BA
+    page: Footer
+    elementRef: Security
+    action: VerifyText
+    testdata: $BA.Security.RU
+    description: Verify the Text of <Security> is as expected
+  - or: BA
+    page: Footer
+    elementRef: PrivacyPolicy
+    action: VerifyText
+    testdata: $BA.PrivacyPolicy.RU
+    description: Verify the Text of <PrivacyPolicy> is as expected
+  - or: BA
+    page: Footer
+    elementRef: Legal
+    action: VerifyText
+    testdata: $BA.Legal.RU
+    description: Verify the Text of <Legal> is as expected
+  - or: BA
+    page: Footer
+    elementRef: About
+    action: VerifyText
+    testdata: $BA.About.RU
+    description: Verify the Text of <About> is as expected
+  - or: BA
+    page: Footer
+    elementRef: Media
+    action: VerifyText
+    testdata: $BA.Media.RU
+    description: Verify the Text of <Media> is as expected
+  - or: BA
+    page: Footer
+    elementRef: Career
+    action: VerifyText
+    description: Verify the Text of <Career> is as expectedexpected
+  - or: BA
+    page: Footer
+    elementRef: CorpResp
+    action: VerifyText
+    testdata: $BA.CorpResp.RU
+    description: Verify the Text of <CorpResp> i
+    testdata: $BA.Career.RUs as expectedexpected
+  - or: BA
+    page: Footer
+    elementRef: ModenSlavery
+    action: VerifyText
+    testdata: $BA.ModenSlavery.RU			
+    description: Verify the Text of <ModenSlavery> is as expected

@@ -1,0 +1,1 @@
+java -Dwebdriver.ie.driver=D:\GridPackage\Drivers\IEDriverServer.exe -Dwebdriver.chrome.driver=D:\GridPackage\Drivers\chromedriver.exe -Dwebdriver.gecko.driver=D:\GridPackage\Drivers\geckodriver.exe -jar ../selenium-server-standalone-3.7.1.jar -role node -nodeConfig nodeconfig.json

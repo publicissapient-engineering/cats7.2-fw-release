@@ -1,0 +1,191 @@
+#-------------------------------------------------------------------------------
+# © Copyright  2019 Publicis Sapient. All rights reserved
+# 
+# Permission to copy, modify and/or redistribute this program requires prior 
+# written consent from Publicis Sapient. 
+# 
+# Above copyright notice and permission notice must appear in all copies.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS  "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# CONTRIBUTOR: CATS|Core@publicissapient.com
+#-------------------------------------------------------------------------------
+/**
+Modify for Box View
+**/
+
+/**
+Result indicators, edit the font size, weight, color.
+affetcs Footer and sub headings
+Not: Edit for all cases--Fail,Pass,amber
+**/
+thead th[class$="fail"] {
+	font-weight: bold;
+	color: white;
+	background-color: #ff5050;
+}
+
+thead th[class$="amber"] {
+	font-weight: bold;
+	color: white;
+	background-color: #FFAA00;
+}
+
+thead th[class$="pass"] {
+	font-weight: bold;
+	color: white;
+	background-color: #50BB50;
+}
+
+/**
+Caption for summary report, edit the font size, weight, color.
+
+Not: Edit for all cases--Fail,Pass,amber
+**/
+h5[class$="fail"] {
+	text-align: center;
+	font-weight: bold;
+	color: #ff5050;
+	text-transform: uppercase;
+}
+
+h5[class$="pass"] {
+	text-align: center;
+	font-weight: bold;
+	color: #50BB50;
+	text-transform: uppercase;
+}
+
+h5[class$="amber"] {
+	text-align: center;
+	font-weight: bold;
+	color: #FFAA00;
+	text-transform: uppercase;
+}
+
+
+/**
+Modify for List view
+
+**/
+/**
+Result indicators, edit the font size, weight, color.
+affetcs Suite names, footer and captions
+Not: Edit for all cases--Fail,Pass,amber
+**/
+td[class$="pass"] {
+	color: #50BB50;
+}
+
+td[class$="amber"] {
+	color: #FFAA00;
+}
+
+td[class$="fail"] {
+	color: #ff5050;
+}
+
+td[class$="skip"] {
+	color: #56aff1;
+}
+
+tr[class$="pass"] {
+	color: #50BB50;
+}
+
+tr[class$="amber"] {
+	color: #ccc;
+}
+
+tr[class$="fail"] {
+	color: #ff5050;
+}
+
+.color_pass {
+	background-color: #50BB50;
+}
+
+.color_amber {
+	background-color: #FFAA00;
+}
+
+.color_fail {
+	background-color: #ff5050;
+}
+.color_skip {
+	background-color: #56aff1;
+}
+caption[class$="fail"] {
+	text-align: center;
+	font-weight: bold;
+	color: #ff5050;
+}
+
+caption[class$="pass"] {
+	text-align: center;
+	font-weight: bold;
+	color: #50BB50;
+}
+
+caption[class$="amber"] {
+	text-align: center;
+	font-weight: bold;
+	color: #FFAA00;
+}
+
+/**
+Edit the background color of table eventh rows
+**/
+tr:nth-child(even) {
+	background-color: #f9f9db;
+}
+
+/**
+Modify for Both view
+**/
+
+.footer-bottom.result_fail {
+	font-weight: bold;
+	background-color: #ff5050;
+	color: white;
+}
+
+.footer-bottom.result_amber {
+	font-weight: bold;
+	background-color: #FFAA00;
+	color: white;
+}
+
+.footer-bottom.result_pass {
+	font-weight: bold;
+	background-color: #50BB50;
+	color: white;
+}
+td.result_fail {
+	
+	color: #ff5050;
+}
+
+td.result_amber {
+	
+	color: #FFAA00;
+}
+
+td.result_pass {
+	
+	color: #50BB50;
+}
+td.result_skip {
+	
+	color: #56aff1;
+}
+/**
+Title of the project, edit the font size, weight, color, alignment
+
+**/
+.projTitle {
+	color:white;
+	text-align: center;
+	text-transform: capitalize;
+}

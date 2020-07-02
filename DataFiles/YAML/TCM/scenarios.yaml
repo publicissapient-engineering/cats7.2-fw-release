@@ -1,0 +1,40 @@
+scenarios:
+- id: MLRU
+  name: BA English Label Verification
+  description: Verify Header and Footer Labels for India using English language
+  testcases:
+    - BA_Launch
+    #- BA_VerifyFooter
+    #- BA_VerifyHeader
+    - BA_Quit
+  scenarioVariables: LANG=RU
+- id: MLRU
+  name: BA English Label Verification
+  description: Verify Header and Footer Labels for India using English language
+  testcases:
+    - BA_Launch
+    #- BA_VerifyFooter
+    #- BA_VerifyHeader
+    - BA_Quit
+  scenarioVariables: LANG=RU  
+- id: AMZDTP
+  name: Amazon Add to Cart Desktop
+  description: Verify user able to add item to cart and verify the Item in the cart and shipping message
+  testcases:
+    - AMZ_Launch
+    - AMZ_SearchPrd
+    - AMZ_SelectPrd
+    - AMZ_SwitchWnd
+    - AMZ_VerifyPrdDetail
+    - AMZ_AddToCart
+    - AMZ_VerifyCart
+    - AMZ_Quit
+  scenariovariables: CHNL=DTP
+- id: AMZMOB
+  name: Amazon Add to Cart Mobile
+  description: Verify user able to add item to cart and verify the Item in the cart and shipping message
+  testcases: [AMZ_Launch,AMZ_SearchPrd,AMZ_SelectPrd,AMZ_VerifyPrdDetail,AMZ_AddToCartMob,AMZ_VerifyCartMob,AMZ_Quit]
+  scenariovarables: CHNL=MOB
+  
+
+   

@@ -1,0 +1,189 @@
+testcases:
+- id: Launch
+  name: LaunchHomePage
+  teststeps:
+  - or: Custom
+    action: LaunchSite	
+    testdata: $AMZ.URL.FIELD1
+    description: Launch Amazon.in		
+  - or: Custom
+    action: VALIDATETITLE
+    expectedResult: $AMZ.Title.<<CHNL>>
+    description: Validate Title of the home page			
+  - or: Custom
+    action: IMPLICITWAIT
+    testdata: $AMZ.ImplicitWait.FIELD1
+    description: Wait implicitly for <$AMZ.ImplicitWait.FIELD1>
+
+- id: Quit
+  name: Quit
+  teststeps:
+  - or: Custom
+    action: Quit	
+    description: Quit the browser
+    
+- id: SearchPrd    
+  name: SearchForProduct  
+  teststeps:
+  - or: AMZ
+    page: Home
+    action: ENTER   
+    elementRef: TXTSearchBox 
+    testdata: $AMZ.ProductName.FIELD1
+    description: Wait implicitly for <$AMZ.ImplicitWait.FIELD1>    
+  - or: Custom
+    action: IMPLICITWAIT
+    testdata: $AMZ.ImplicitWait.FIELD1
+  - or: AMZ
+    page: Home
+    elementRef: TXTSearchBox
+    action: ENTERPRESS  
+    description: Enter Press on <TXTSearchBox>
+    
+- id: SelectPrd    
+  name: SelectProduct  
+  teststeps:    
+  - or: Custom
+    action: PAGELOADWAIT
+    expectedResult: 60
+    description: Click on the Product Link
+  - or: AMZ
+    page: ProductList
+    elementRef: LNKProduct
+    action: Click    
+    description: Click on <LNKProduct>
+    
+- id: SwitchWnd
+  name: SwitchWnd
+  teststeps:
+  - ControlFlow: IF
+    or: Custom
+    action: VerifyVariableValue
+    testdata: <<CURR_BROWSER>>
+    expectedResult: Chrome
+    description: Verify <<<CURR_BROWSER>>> is matching with expected result     
+  - ControlFlow: END IF
+    or: Custom
+    action: HANDLEWINDOWBYID
+    testdata: $AMZ.WindowId.FIELD1
+   
+- id: VerifyPrdDetail
+  name: VerifyProductDetails
+  teststeps:
+  - or: Custom
+    action: VALIDATETITLE
+    expectedResult: $AMZ.PageTitle.<<CHNL>>
+    testdata: $AMZ.ImplicitWait.FIELD1
+    description: Validate title of the page
+    
+  - ControlFlow: IF
+    or: AMZ
+    page : ProductDetails
+    elementRef: TXTProductTitle
+    action: VALIDATETEXT
+    expectedResult: $AMZ.ProductTitle.<<CHNL>>
+    description: Validate title of the product
+    
+  - ControlFlow: ELSE
+    or: Custom
+    page: ProductDetails
+    elementRef: TXTProductTitle
+    action: VALIDATETEXT          
+    expectedResult: $AMZ.ProductTitle.<<CHNL>>
+     
+  - ControlFlow: END IF
+    or: Custom
+    action: Wait
+    testdata: 5
+    description: Wait
+     
+- id: AddToCart
+  name: AddToShoppingCart
+  teststeps:
+  - or: AMZ
+    page: ProductDetails
+    elementRef: SelectSize
+    action: SELECTELEMENTBYTEXT
+    testdata: $AMZ.ProductSize.FIELD2
+    description: Select the <$AMZ.ProductSize.FIELD1> from <SELECTSize>
+  - or: Custom 
+    action: Wait
+    testdata: 5
+    description: Wait
+  - or : AMZ
+    page: ProductDetails
+    elementRef: BTNAddToCart
+    action: click
+    description: Click on Add to cart
+  - or : Custom  
+    action: Wait
+    testdata: 10
+    description: Wait
+    
+- id: VerifyCart
+  name: VerifyCart
+  teststeps:
+  - or: AMZ
+    page: ProductDetails
+    elementRef: BTNCart
+    action: Click
+    description: Click on the Cart Button
+  - or: AMZ
+    page: Cart
+    elementRef: LISTCartItem
+    action: VERIFYELEMENTSCOUNT
+    expectedResult: $AMZ.ItemCount.ER1
+    description: Verify the <LISTCartItem> Count
+  - or: AMZ
+    page: Cart
+    elementRef: TXTFreeDelivery
+    action: VERIFYPARTTEXTPRESENT
+    expectedResult: $AMZ.FreeDeliveryText.ER1
+    description: Verify the <TXTFreeDelivery> contains the partial text
+   
+- id: VerifyCartMob
+  name: VerifyCart3
+  teststeps:
+  - or: AMZ
+    page: Cart
+    elementRef: LISTCartItem
+    action: VERIFYELEMENTSCOUNT
+    expectedResult: $AMZ.ItemCount.FIELD1
+    description: Verify the <LISTCartItem> Count
+  - or: AMZ
+    page: Cart
+    elementRef: TXTFreeDelivery
+    action: VERIFYPARTTEXTPRESENT
+    expectedResult: $AMZ.FreeDeliveryText.ER1
+    description: Verify the <TXTFreeDelivery> contains the partial text
+    
+- id: AddToCartMob
+  name: AddToShoppingCart2
+  teststeps:
+  - or: AMZ
+    page: ProductDetails
+    elementRef: SelectSize
+    action: Click
+    description: Click on <SELECTSize>
+  - or: AMZ
+    page: ProductDetails
+    elementRef: SelectSize2  
+    action: Click
+    description: Click on <SELECTSize2>
+  - or: AMZ
+    page: ProductDetails
+    elementRef: SelectSize2  
+    action: Wait
+    testdata: 5
+    description: Wait
+  - or: AMZ
+    page: ProductDetails
+    elementRef: BTNAddToCart  
+    action: Click
+    description: Click on <SELECTSize2>
+  - or: AMZ
+    page: ProductDetails
+    elementRef: BTNAddToCart  
+    action: Wait
+    testdata: 10
+    description: Wait

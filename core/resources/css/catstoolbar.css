@@ -1,0 +1,137 @@
+.tool-bar {
+	-fx-background-color: cornflowerblue;
+}
+
+.button, .button:focused {
+	-fx-padding: 10px;
+	-fx-background-radius: 16px;
+	-fx-background-color: white;
+}
+
+.button:focused {
+	-fx-opacity: 1.0;
+	-fx-font-color: white;
+}
+
+.button:disabled {
+	-fx-opacity: .7;
+	-fx-font-color: white;
+}
+
+.choice-box {
+	-fx-padding: 5px;
+	-fx-background-radius: 16px;
+	-fx-background-color: white;
+}
+
+.combo-box {
+	-fx-padding: 5px;
+	-fx-background-radius: 16px;
+	-fx-background-color: white;
+}
+
+.button-font-style {
+	-fx-font-size: 14px;
+}
+
+.check-box>.box {
+	-fx-background-radius: 3, 2, 1;
+	-fx-padding: 5px; /* 2 2 3 3 */
+}
+
+.check-box>.box>.mark {
+	-fx-background-color: null;
+	-fx-padding: 5px; /* 5 5 6 6 */
+	/*     -fx-shape: "M-0.25,6.083c0.843-0.758,4.583,4.833,5.75,4.833S14.5-1.5,15.917-0.917c1.292,0.532-8.75,17.083-10.5,17.083C3,16.167-1.083,6.833-0.25,6.083z"; */
+}
+
+.check-box:indeterminate>.box {
+	-fx-padding: 5px;
+}
+
+.check-box:indeterminate>.box>.mark {
+	-fx-shape: "M0,0H10V2H0Z";
+	-fx-scale-shape: true;
+	-fx-padding: 5px; /* 16x16 = 8+8 */
+}
+
+.hbox .buttonbar .button {
+	-fx-padding: 1px;
+	-fx-background-color: red;
+}
+
+#btnValidate {
+	-fx-graphic: url("../imagesfx/validate.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnRun {
+	-fx-graphic: url("../imagesfx/play.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnPause {
+	-fx-graphic: url("../imagesfx/pause.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnFwd {
+	-fx-graphic: url("../imagesfx/resume.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnStop {
+	-fx-graphic: url("../imagesfx/stop.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnSummary {
+	-fx-graphic: url("../imagesfx/report.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnReference {
+	-fx-graphic: url("../imagesfx/action-ref.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+#btnAutoIt{
+	-fx-graphic: url("../imagesfx/autoit.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+	
+}
+#btnCapture{
+	/* -fx-graphic: url("../imagesfx/screencapture.png"); */
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+	
+}
+#btnGuide {
+	-fx-graphic: url("../imagesfx/user-guide.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnRunReports {
+	-fx-graphic: url("../imagesfx/run-report.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnSupport {
+	-fx-graphic: url("../imagesfx/support.png");
+	-fx-padding: 0px;
+	-fx-background-color: cornflowerblue;
+}
+
+#btnBrowse{
+	-fx-graphic: url("../imagesfx/browsefile.png");
+	-fx-padding: 0px;
+}

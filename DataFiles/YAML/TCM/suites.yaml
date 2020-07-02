@@ -1,0 +1,9 @@
+suites:
+- release: MultiLingual	
+  testSuite: MultiLingualVerification
+  scenarios: SCENARIOS_MLRU
+  description: Verifying the British Airways header and footer content for different language
+  run: Y  
+  config: CONFIG_Chrome
+  batch: A01
+  suitelables: search

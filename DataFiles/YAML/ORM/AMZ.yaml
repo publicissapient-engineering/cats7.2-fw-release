@@ -1,0 +1,102 @@
+SignIn:
+  TXTEmail:
+    xpath: .//*[@id='ap_email']
+  TXTPassword:
+    xpath: .//*[@id='ap_password']
+  BTNLogin:
+    xpath: .//*[@id='signInSubmit']
+  TXTFullName:
+    xpath: .//*[@id='enterAddressFullName']
+  TXTAddressLine1:
+    xpath: .//*[@id='enterAddressAddressLine1']
+  TXTAddressLine2:
+    xpath: .//*[@id='enterAddressAddressLine2']
+  TXTCity:
+    xpath: .//*[@id='enterAddressCity']
+  TXTState:
+    xpath: .//*[@id='enterAddressStateOrRegion']
+  TXTPostalCode:
+    xpath: .//*[@id='enterAddressPostalCode']
+  SELECTCountry:
+    xpath: .//*[@id='enterAddressCountryCode']
+  TXTPhoneNumber:
+    xpath: .//*[@id='enterAddressPhoneNumber']
+  TXTLandMark:
+    xpath: .//*[@id='Landmark']
+  SelectAddressType:
+    xpath: .//*[@id='AddressType'][0]
+  BTNDeliverToAddress:
+    xpath: .//*[@id='newShippingAddressFormFromIdentity']/div[1]/div/form/div[6]/span/span/input
+Home:
+  TXTSearchBox:
+    xpath: .//*[@id='twotabsearchtextbox'] | //*[@id='nav-search-keywords']
+  BTNSearchGo:
+    xpath: .//*[@id='nav-search']/form/div[2]/div/input
+ProductList:
+  IMGResult1:
+    htmlId: .//*[@id='result_1']/div/div/div/div[1]/div/div/a/img
+  LNKProduct:  
+    xpath: //*[contains(text(),\"Men's Wool Jacket\")]
+  TXTProductTitle:
+    xpath: .//*[@id='productTitle']
+  TXTProductBrand:
+    xpath: .//*[@id='brand']
+  SELECTSize:
+    xpath: .//*[@id='native_dropdown_selected_size_name']
+  SELECTQuantity:
+    xpath: .//*[@id='quantity']
+  BTNAddToCart:
+    xpath: .//*[@id='add-to-cart-button']
+PLPHome:
+  Product1:
+    xpath: //*[@id='resultItems']/li[1]/a/div/div[2]/h5
+ProductDetails:
+  TXTProductTitle:
+    xpath: .//*[@id='productTitle'] | //*[@id='title'] 
+  TXTProductBrand:
+    xpath: .//*[@id='brand']
+  SELECTSize:
+    xpath: .//*[@id='native_dropdown_selected_size_name'] | //*[@id='size_name-button']/span/input
+  SELECTSize2:
+    xpath: //h4[text()='Large'] | //h4[text()='Small'] 
+  SELECTQuantity:
+    xpath: .//*[@id='quantity']
+  BTNAddToCart:
+    xpath: .//*[@id='add-to-cart-button']
+  IMGLandingImage:
+    xpath: .//*[@id='landingImage' or @id='main-image']
+  BTNCart:
+    xpath: .//*[@id='nav-cart']
+PDPHome:
+  ColorChoose:
+    xpath: //*[@id='color_name-button']/span
+  GoldColor:
+    xpath: //*[@id='color_name-list']/div/ul/li[2]/span/span/a/div
+  Availability:
+    xpath: //*[@id='availability']/span
+  AddToCart:
+    xpath: //*[@id='add-to-cart-button']
+  Title:
+    xpath: //*[@id='title']
+  FreeDelivery:
+    xpath: //*[@id='price']/tbody/tr[3]/td[2]/span/a
+  PinCode:
+    xpath: //*[@id='ddmZipCodeInput']
+  PinCodeGo:
+    xpath: //*[@id='ddmZipCodeUpdateBtn']/span
+  DeliveryMessage:
+    xpath: //*[@id='ddmDeliveryMessage']
+  AddToCart2:
+    xpath: //*[@id='add-to-cart-button1']
+Cart:
+  TXTCartPrice:
+    xpath: .//*[@id='hlb-subcart']/div[1]/span/span[2]/span
+  BTNProceed:
+    xpath: .//*[@id='hlb-ptc-btn-native']
+  BTNContinue:
+    xpath: //*[@id='shippingOptionFormId']/div[3]/div/div/span[1]/span/input
+  LISTCartItem:
+    xpath: //*[@id='activeCartViewForm']/div[@class='sc-list-body']/div | //*[@id='a-autoid-2-announce']
+  TXTFreeDelivery:
+    xpath: //*[@id='gutterCartViewForm']/div[3]/div[1]/div/div/div/div/div/span | //*[@id='sc-buy-box']/form/div[2]/div/div/div/div/span
+

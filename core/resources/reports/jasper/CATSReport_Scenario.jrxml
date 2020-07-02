@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CATSReport_Scenario" pageWidth="1305" pageHeight="1684" columnWidth="1295" leftMargin="5" rightMargin="5" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="2d4f0546-3019-485a-bf65-bb43371059aa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.default.font.name" value="DejaVu Sans"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<import value="org.apache.commons.codec.binary.Base64"/>
+	<style name="iThemeFontColor" isDefault="true" forecolor="#024671"/>
+	<style name="iTableData" style="iThemeFontColor" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="2">
+			<pen lineWidth="0.5" lineColor="#024671"/>
+			<topPen lineWidth="0.5" lineColor="#024671"/>
+			<leftPen lineWidth="0.5" lineColor="#024671"/>
+			<bottomPen lineWidth="0.5" lineColor="#024671"/>
+			<rightPen lineWidth="0.5" lineColor="#024671"/>
+		</box>
+	</style>
+	<style name="iHeaderLine" mode="Opaque" forecolor="#000000" backcolor="#024671" fill="Solid" hAlign="Left">
+		<box>
+			<pen lineStyle="Double" lineColor="#10222B"/>
+			<topPen lineStyle="Double" lineColor="#10222B"/>
+			<leftPen lineStyle="Double" lineColor="#10222B"/>
+			<bottomPen lineWidth="5.0" lineStyle="Double" lineColor="#10222B"/>
+			<rightPen lineStyle="Double" lineColor="#10222B"/>
+		</box>
+	</style>
+	<style name="iHeaderLevel1" mode="Opaque" forecolor="#FFFFFF" backcolor="#3778A5" hAlign="Left" vAlign="Middle" pattern="" fontName="Cambria" fontSize="18" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="5"/>
+	</style>
+	<style name="iHeadLevel2" style="iThemeFontColor" mode="Opaque" backcolor="#96D2F5" fill="Solid" hAlign="Center" vAlign="Middle" pattern="" fontName="Perpetua Titling MT" fontSize="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="iTableColumnHeader" style="iThemeFontColor" mode="Opaque" backcolor="#E1F5FF" fill="Solid" hAlign="Center" vAlign="Middle" fontName="Perpetua Titling MT" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false"/>
+	<field name="scenarioId" class="java.lang.String"/>
+	<field name="scenarioDesc" class="java.lang.String"/>
+	<field name="testcaseRows" class="java.util.List"/>
+	<field name="numberOfScenarioSteps" class="java.lang.Integer"/>
+	<field name="fieldKey" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="220" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="92" width="1295" height="126" uuid="1325cc10-a41c-4df9-9271-71489fe522d9"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+		            ($F{testcaseRows})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CATSReport_Testcases.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="425" y="61" width="160" height="30" uuid="348caa97-e671-497b-9b24-508a099dee92"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TEST DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="2" y="61" width="205" height="30" uuid="ba79bdfc-9b3b-4eae-a70e-9e9bc0aa85ce"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="285" y="61" width="140" height="30" uuid="9f5c9d0e-ce48-47e5-9588-377335ddf6d3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ACTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="925" y="61" width="80" height="30" uuid="48634636-44f6-4c4c-98a3-e10de6988be5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="755" y="61" width="176" height="30" uuid="43bd1110-519c-4f98-93f4-548cbc1ccc0e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Actual Result]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="1175" y="61" width="60" height="30" uuid="a81e8ddd-b158-46a5-9cea-838fac377c23"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DUR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="1005" y="61" width="70" height="30" uuid="1a44ff06-d701-46a6-8f75-a8a65af32d57"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ERROR
+CODE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="1235" y="61" width="60" height="30" uuid="cad0c916-d859-4410-abd5-9a553ce74cd5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[SCREEN
+LINK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="585" y="61" width="170" height="30" uuid="9cdf2b98-6c57-47f0-8847-f41496609374"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[EXPECTED RESULT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="205" y="61" width="80" height="30" uuid="3750beed-e21a-4d35-bfd9-8353e332f210"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[CONDITION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="iHeadLevel2" x="1075" y="61" width="100" height="30" uuid="6351aaae-1329-42cc-afa8-c61eca679925"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[OR REFERENCE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="iHeaderLine" mode="Opaque" x="0" y="5" width="1295" height="10" uuid="f169ed23-745f-4535-b3a0-f48d73755ac4"/>
+			</rectangle>
+			<textField>
+				<reportElement style="iHeaderLevel1" mode="Opaque" x="0" y="15" width="1295" height="36" uuid="665383bb-6f4d-4b92-9f9d-3c61c49426e9"/>
+				<textElement markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scenarioId}.concat(" | ").concat($F{scenarioDesc}) + " | " + ($F{fieldKey}.equals("")?"":"DATA KEY :  ".concat($F{fieldKey})).toString()]]></textFieldExpression>
+				<anchorNameExpression><![CDATA[$F{scenarioId}]]></anchorNameExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

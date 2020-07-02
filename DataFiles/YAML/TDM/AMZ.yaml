@@ -1,0 +1,111 @@
+---
+- DefaultHeader:
+  - FIELD1
+  - FIELD2
+  - FIELD3
+  - FIELD4
+  - ER1
+  - ER2
+  - ER3
+  - ER4
+  - DTP
+  - MOB
+- URL:
+    FIELD1: http://www.amazon.in/
+    FIELD2: http://www.amazon.com/
+    FIELD3: http://www.jabong.com
+    FIELD4: http://www.amazon.com/
+- Title:
+    ER1: Online Shopping Shop Online for Mobiles, Books, Watches, Shoes and More -
+      Amazon.in
+    ER2: Amazon.com
+    ER3: Online Shopping Shop Online for Mobiles, Books, Watches, Shoes and More -
+      Amazon.in
+    ER4: Amazon.com
+- ImplicitWait:
+    FIELD1: 10
+    FIELD2: 20
+    FIELD3: 30
+    FIELD4: 10
+- ProductName:
+    FIELD1: Wool Jacket
+    FIELD2: Leather Jacket
+    FIELD3: Wool Jacket
+    FIELD4: Jacket
+- WindowId:
+    FIELD1: 1
+- URL2:
+    FIELD1: http://www.google.com
+- PageTitle:
+    FIELD1: Pickle Men's Wool Jacket (JAK-6101 GREY--M, Grey, Medium)
+    ER1: Pickle Men's Wool Jacket Amazon.in Clothing & Accessories
+    ER2: LL Womens Hooded Faux leather Jacket at Amazon Women's Coats Shop
+    ER3: The Vanca Women's Wool Blouson Jacket Amazon.in Clothing & Accessories
+    ER4: Women Plain Zipper Spring Hoodie Striped Hooded Jacket at Amazon Women's
+      Coats Shop
+    DTP: Pickle Men's Wool Jacket Amazon.in Clothing & Accessories
+    MOB: Pickle Men's Wool Jacket (JAK-6101 GREY--M, Grey, Medium)
+- ProductTitle:
+    FIELD1: Men's Wool Jacket
+    ER1: Pickle Men's Wool Jacket
+    ER2: LL Womens Hooded Faux leather Jacket
+    ER3: The Vanca Women's Wool Blouson Jacket
+    ER4: Women Plain Zipper Spring Hoodie Striped Hooded Jacket
+- ProductBrand:
+    ER1: Pickle
+    ER3: THE VANCA
+    ER4: WANGSCANIS
+- ProductSize:
+    FIELD1: Large
+    FIELD2: Medium
+    FIELD3: Medium
+    FIELD4: Lable M
+- ProductQuantity:
+    FIELD1: 1
+    FIELD2: 1
+    FIELD3: 1
+    FIELD4: 1
+- Username:
+    FIELD1: catsapient2015@gmail.com
+    FIELD2: catsapient2015@gmail.com
+- Password:
+    FIELD1: cats2015
+    FIELD2: cats2015
+- FullName:
+    FIELD1: Some Valid Name
+    FIELD2: Some Valid Name
+- AddressLine1:
+    FIELD1: Address Line 1
+    FIELD2: Address Line 1
+- AddressLine2:
+    FIELD1: Address Line 1
+    FIELD2: Address Line 2
+- City:
+    FIELD1: Bangalore
+    FIELD2: Bangalore
+- State:
+    FIELD1: Karnataka
+    FIELD2: Karnataka
+- PostalCode:
+    FIELD1: 560066
+    FIELD2: 560066
+- Country:
+    FIELD1: India
+    FIELD2: India
+- PhoneNumber:
+    FIELD1: 9876543210
+    FIELD2: 9876543210
+- Landmark:
+    FIELD1: Near Some Landmark
+    FIELD2: Near Some Landmark
+- AddressType:
+    FIELD1: Home
+    FIELD2: Home
+- CartPrice:
+    FIELD1: "$17,999.00"
+    FIELD2: 59.78
+- ItemCount:
+    FIELD1: 2
+    ER1: 1
+- FreeDeliveryText:
+    ER1: Your order is eligible for FREE Delivery.

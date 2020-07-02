@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CATSExecutiveSummary" columnCount="3" printOrder="Horizontal" pageWidth="1240" pageHeight="1190" columnWidth="390" columnSpacing="15" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="1ae6d297-0a31-4a99-afee-9676de6a3a3d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="227"/>
+	<property name="net.sf.jasperreports.default.font.name" value="DejaVu Sans"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<import value="org.apache.commons.codec.binary.Base64"/>
+	<style name="iThemeFontColor" isDefault="true" forecolor="#024671"/>
+	<style name="iTableData" style="iThemeFontColor" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="2">
+			<pen lineWidth="0.5" lineColor="#024671"/>
+			<topPen lineWidth="0.5" lineColor="#024671"/>
+			<leftPen lineWidth="0.5" lineColor="#024671"/>
+			<bottomPen lineWidth="0.5" lineColor="#024671"/>
+			<rightPen lineWidth="0.5" lineColor="#024671"/>
+		</box>
+	</style>
+	<style name="iHeaderLine" mode="Opaque" forecolor="#000000" backcolor="#024671" fill="Solid" hAlign="Left">
+		<box>
+			<pen lineStyle="Double" lineColor="#10222B"/>
+			<topPen lineStyle="Double" lineColor="#10222B"/>
+			<leftPen lineStyle="Double" lineColor="#10222B"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#10222B"/>
+			<rightPen lineStyle="Double" lineColor="#10222B"/>
+		</box>
+	</style>
+	<style name="iHeaderLevel1" mode="Opaque" forecolor="#CCFFFF" backcolor="#3778A5" hAlign="Left" vAlign="Middle" pattern="" fontName="Cambria" fontSize="18" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="5"/>
+	</style>
+	<style name="iHeadLevel2" style="iThemeFontColor" mode="Opaque" backcolor="#96D2F5" fill="Solid" hAlign="Center" vAlign="Middle" pattern="" fontName="Perpetua Titling MT" fontSize="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="iTableColumnHeader" style="iThemeFontColor" mode="Opaque" backcolor="#E1F5FF" fill="Solid" hAlign="Center" vAlign="Middle" fontName="Perpetua Titling MT" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="suiteNameColorDecision" style="iTableData" isPdfEmbedded="false">
+		<box leftPadding="0">
+			<topPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) > $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#E8FBEC">
+				<box leftPadding="2">
+					<pen lineWidth="0.5" lineColor="#006600"/>
+					<topPen lineWidth="0.5" lineColor="#006600"/>
+					<leftPen lineWidth="0.5" lineColor="#006600"/>
+					<bottomPen lineWidth="0.5" lineColor="#006600"/>
+					<rightPen lineWidth="0.5" lineColor="#006600"/>
+				</box>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) >= $P{failPercentageThreshold} && Float.parseFloat($F{passPercentage}.replaceAll("%","")) <= $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FEF0D4">
+				<box leftPadding="2">
+					<pen lineWidth="0.5" lineColor="#FFAA00"/>
+					<topPen lineWidth="0.5" lineColor="#FFAA00"/>
+					<leftPen lineWidth="0.5" lineColor="#FFAA00"/>
+					<bottomPen lineWidth="0.5" lineColor="#FFAA00"/>
+					<rightPen lineWidth="0.5" lineColor="#FFAA00"/>
+				</box>
+			</style>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) < $P{failPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FBEAE8">
+				<box leftPadding="2">
+					<pen lineWidth="0.5" lineColor="#FF0000"/>
+					<topPen lineWidth="0.5" lineColor="#FF0000"/>
+					<leftPen lineWidth="0.5" lineColor="#FF0000"/>
+					<bottomPen lineWidth="0.5" lineColor="#FF0000"/>
+					<rightPen lineWidth="0.5" lineColor="#FF0000"/>
+				</box>
+			</style>
+		</conditionalStyle>
+	</style>
+	<style name="passPercentDisplayForTCorTP" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{passedCount}!=0]]></conditionExpression>
+			<style forecolor="#139423"/>
+		</conditionalStyle>
+	</style>
+	<style name="failPercentDisplayForTCorTP" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{failedCount}!=0]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="passPercentDisplayForScenario" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[($F{scenarioCount}-($F{scenarioFailedCount}+$F{scenarioSkipCount}))!=0]]></conditionExpression>
+			<style forecolor="#139423"/>
+		</conditionalStyle>
+	</style>
+	<style name="failPercentDisplayForScenario" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{scenarioFailedCount}!=0]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="passPercentDisplayForCurrentRunManual" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Integer.parseInt($P{CurrentPass})!=0]]></conditionExpression>
+			<style forecolor="#139423"/>
+		</conditionalStyle>
+	</style>
+	<style name="failPercentDisplayForCurrentRunManual" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Integer.parseInt($P{CurrentFail})!=0]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="passPercentDisplayForConsolidatedRunManual" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Integer.parseInt($P{ConsolidatedPass})!=0]]></conditionExpression>
+			<style forecolor="#139423"/>
+		</conditionalStyle>
+	</style>
+	<style name="failPercentDisplayForConsolidatedRunManual" style="iTableData">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Integer.parseInt($P{ConsolidatedFail})!=0]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="iWhiteFont" forecolor="#FFFFFF" fontSize="20"/>
+	<style name="overAllColorDecision" style="iWhiteFont" mode="Opaque" backcolor="#CCCCCC">
+		<box leftPadding="2">
+			<topPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) >= $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#006600"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) > $P{failPercentageThreshold} && Float.parseFloat($V{OverAllPassRate}) < $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFAA00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) <= $P{failPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="PassPercentage" fill="Solid" markup="html" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="iBlackFont" forecolor="#FFFFFF" fontSize="20"/>
+	<style name="suiteHeadingColorDecision" style="iTableData" forecolor="#FFFFFF" backcolor="#CCCCCC" fontSize="22">
+		<box leftPadding="0">
+			<topPen lineWidth="0.5"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) > $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#006600"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) >= $P{failPercentageThreshold} && Float.parseFloat($F{passPercentage}.replaceAll("%","")) <= $P{passPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFAA00"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Float.parseFloat($F{passPercentage}.replaceAll("%","")) < $P{failPercentageThreshold}]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="f1cf25a6-1b7e-47a8-9bf2-995c49ddab70">
+		<parameter name="CurrentPass" class="java.lang.String"/>
+		<parameter name="CurrentFail" class="java.lang.String"/>
+		<parameter name="CurrentSkipped" class="java.lang.String"/>
+		<parameter name="CurrentPartiallySkipped" class="java.lang.String"/>
+		<field name="config" class="java.lang.String"/>
+		<field name="passed" class="java.lang.String"/>
+		<field name="failed" class="java.lang.String"/>
+		<field name="skipped" class="java.lang.String"/>
+		<field name="partiallySkipped" class="java.lang.String"/>
+		<field name="notStarted" class="java.lang.String"/>
+		<field name="noRun" class="java.lang.String"/>
+		<variable name="CurrentRunTotalCount" class="java.lang.Float">
+			<variableExpression><![CDATA[Float.parseFloat($P{CurrentPass})+Float.parseFloat($P{CurrentFail})+Float.parseFloat($P{CurrentSkipped})+Float.parseFloat($P{CurrentPartiallySkipped})]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunPassPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{CurrentPass})==0)?0:((Float.parseFloat($P{CurrentPass})/$V{CurrentRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunFailPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{CurrentFail})==0)?0:((Float.parseFloat($P{CurrentFail})/$V{CurrentRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunSkippedPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{CurrentSkipped})==0)?0:((Float.parseFloat($P{CurrentSkipped})/$V{CurrentRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunPartiallySkipeedPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{CurrentPartiallySkipped})==0)?0:((Float.parseFloat($P{CurrentPartiallySkipped})/$V{CurrentRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunPass" class="java.lang.String">
+			<variableExpression><![CDATA[$P{CurrentPass}.concat(" [").concat(String.format("%.2f",$V{CurrentRunPassPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunFail" class="java.lang.String">
+			<variableExpression><![CDATA[$P{CurrentFail}.concat(" [").concat(String.format("%.2f",$V{CurrentRunFailPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunSkipped" class="java.lang.String">
+			<variableExpression><![CDATA[$P{CurrentSkipped}.concat(" [").concat(String.format("%.2f",$V{CurrentRunSkippedPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="CurrentRunPartiallySkipped" class="java.lang.String">
+			<variableExpression><![CDATA[$P{CurrentPartiallySkipped}.concat(" [").concat(String.format("%.2f",$V{CurrentRunPartiallySkipeedPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="CurrentNoRun" class="java.lang.String">
+			<variableExpression><![CDATA["0 [0.0 %]"]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="eafe003e-bea9-4e95-891d-3ff29435923c">
+		<parameter name="ConsolidatedNoRun" class="java.lang.String"/>
+		<parameter name="ConsolidatedPass" class="java.lang.String"/>
+		<parameter name="ConsolidatedFail" class="java.lang.String"/>
+		<parameter name="ConsolidatedSkipped" class="java.lang.String"/>
+		<parameter name="ConsolidatedPartiallySkipped" class="java.lang.String"/>
+		<field name="passed" class="java.lang.String"/>
+		<field name="failed" class="java.lang.String"/>
+		<field name="skipped" class="java.lang.String"/>
+		<field name="partiallySkipped" class="java.lang.String"/>
+		<field name="notStarted" class="java.lang.String"/>
+		<field name="noRun" class="java.lang.String"/>
+		<variable name="ConsolidatedRunTotalCount" class="java.lang.Float">
+			<variableExpression><![CDATA[Float.parseFloat($P{ConsolidatedPass})+Float.parseFloat($P{ConsolidatedFail})+Float.parseFloat($P{ConsolidatedSkipped})+Float.parseFloat($P{ConsolidatedPartiallySkipped})+Float.parseFloat($P{ConsolidatedNoRun})]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunPassPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{ConsolidatedPass})==0)?0:((Float.parseFloat($P{ConsolidatedPass})/$V{ConsolidatedRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunFailPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{ConsolidatedFail})==0)?0:((Float.parseFloat($P{ConsolidatedFail})/$V{ConsolidatedRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunSkippedPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{ConsolidatedSkipped})==0)?0:((Float.parseFloat($P{ConsolidatedSkipped})/$V{ConsolidatedRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunPartiallySkippedPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{ConsolidatedPartiallySkipped})==0)?0:((Float.parseFloat($P{ConsolidatedPartiallySkipped})/$V{ConsolidatedRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunNoRunPer" class="java.lang.Float">
+			<variableExpression><![CDATA[(Float.parseFloat($P{ConsolidatedNoRun})==0)?0:((Float.parseFloat($P{ConsolidatedNoRun})/$V{ConsolidatedRunTotalCount})*100)]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunPass" class="java.lang.String">
+			<variableExpression><![CDATA[$P{ConsolidatedPass}.concat(" [").concat(String.format("%.2f",$V{ConsolidatedRunPassPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunFail" class="java.lang.String">
+			<variableExpression><![CDATA[$P{ConsolidatedFail}.concat(" [").concat(String.format("%.2f",$V{ConsolidatedRunFailPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunSkipped" class="java.lang.String">
+			<variableExpression><![CDATA[$P{ConsolidatedSkipped}.concat(" [").concat(String.format("%.2f",$V{ConsolidatedRunSkippedPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunPartiallySkipped" class="java.lang.String">
+			<variableExpression><![CDATA[$P{ConsolidatedPartiallySkipped}.concat(" [").concat(String.format("%.2f",$V{ConsolidatedRunPartiallySkippedPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+		<variable name="ConsolidatedRunNoRun" class="java.lang.String">
+			<variableExpression><![CDATA[$P{ConsolidatedNoRun}.concat(" [").concat(String.format("%.2f",$V{ConsolidatedRunNoRunPer}.doubleValue())).concat(" %]")]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="Version" class="java.lang.String"/>
+	<parameter name="projectName" class="java.lang.String"/>
+	<parameter name="startTime" class="java.util.Date"/>
+	<parameter name="totalScenarioPassed" class="java.lang.Integer"/>
+	<parameter name="totalScenarioFailed" class="java.lang.Integer"/>
+	<parameter name="totalScenarioSkipped" class="java.lang.Integer"/>
+	<parameter name="totalScenarioCount" class="java.lang.Integer"/>
+	<parameter name="failPercentageThreshold" class="java.lang.Float"/>
+	<parameter name="passPercentageThreshold" class="java.lang.Float"/>
+	<parameter name="overallPassRate" class="java.lang.String"/>
+	<parameter name="totalTestCasePassed" class="java.lang.String"/>
+	<parameter name="passPercentageCriteriaKey" class="java.lang.String"/>
+	<parameter name="overallExecutionRate" class="java.lang.String"/>
+	<parameter name="executionTime" class="java.lang.String"/>
+	<parameter name="CurrentPass" class="java.lang.String"/>
+	<parameter name="CurrentFail" class="java.lang.String"/>
+	<parameter name="CurrentSkipped" class="java.lang.String"/>
+	<parameter name="CurrentPartiallySkipped" class="java.lang.String"/>
+	<parameter name="ConsolidatedNoRun" class="java.lang.String"/>
+	<parameter name="ConsolidatedPass" class="java.lang.String"/>
+	<parameter name="ConsolidatedFail" class="java.lang.String"/>
+	<parameter name="ConsolidatedSkipped" class="java.lang.String"/>
+	<parameter name="ConsolidatedPartiallySkipped" class="java.lang.String"/>
+	<parameter name="currentRunDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="consolidatedRunDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="displayManualMapping" class="java.lang.String"/>
+	<field name="testSuite" class="java.lang.String"/>
+	<field name="testSuiteReportLink" class="java.lang.String"/>
+	<field name="channel" class="java.lang.String"/>
+	<field name="browser" class="java.lang.String"/>
+	<field name="scenarioCount" class="java.lang.Long"/>
+	<field name="testcaseCount" class="java.lang.Long"/>
+	<field name="passedCount" class="java.lang.Integer"/>
+	<field name="failedCount" class="java.lang.Integer"/>
+	<field name="noRunCount" class="java.lang.Integer"/>
+	<field name="executionPercentage" class="java.lang.String"/>
+	<field name="passPercentage" class="java.lang.String"/>
+	<field name="failPercentage" class="java.lang.String"/>
+	<field name="duration" class="java.lang.String"/>
+	<field name="release" class="java.lang.String"/>
+	<field name="reportCriteriaKey" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="scenarioPassPercentage" class="java.lang.String"/>
+	<field name="scenarioFailPercentage" class="java.lang.String"/>
+	<field name="scenarioSkipPercentage" class="java.lang.String"/>
+	<field name="scenarioFailedCount" class="java.lang.Integer"/>
+	<field name="scenarioSkipCount" class="java.lang.Integer"/>
+	<field name="platformInfo" class="java.lang.String"/>
+	<field name="suiteExecutionTime" class="java.lang.String"/>
+	<variable name="scenarioPassCount" class="java.lang.Long">
+		<variableExpression><![CDATA[($F{scenarioCount}-($F{scenarioSkipCount}+$F{scenarioFailedCount}))]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="ScenarioPassCountString" class="java.lang.String">
+		<variableExpression><![CDATA[$V{scenarioPassCount}.toString().concat("/").concat($F{scenarioCount}.toString())]]></variableExpression>
+	</variable>
+	<variable name="scenarioPassPercentage" class="java.lang.Float">
+		<variableExpression><![CDATA[$V{scenarioPassCount}.floatValue()/$F{scenarioCount}.floatValue()*100]]></variableExpression>
+	</variable>
+	<variable name="ScenarioFailCountString" class="java.lang.String">
+		<variableExpression><![CDATA[$F{scenarioFailedCount}.toString().concat("/").concat($F{scenarioCount}.toString())]]></variableExpression>
+	</variable>
+	<variable name="ScenarioSkipCountString" class="java.lang.String">
+		<variableExpression><![CDATA[$F{scenarioSkipCount}.toString().concat("/").concat($F{scenarioCount}.toString())]]></variableExpression>
+	</variable>
+	<variable name="TotalScenarioPassed" class="java.lang.Integer">
+		<variableExpression><![CDATA[$P{totalScenarioCount}-($P{totalScenarioFailed}+$P{totalScenarioSkipped})]]></variableExpression>
+	</variable>
+	<variable name="TotalScenarioExecutedFloat" class="java.lang.Float">
+		<variableExpression><![CDATA[(($P{totalScenarioCount}.floatValue()-$P{totalScenarioSkipped}.floatValue())/$P{totalScenarioCount}.floatValue())*100]]></variableExpression>
+	</variable>
+	<variable name="TotalScenarioPassedFloat" class="java.lang.Float">
+		<variableExpression><![CDATA[($V{TotalScenarioPassed}.floatValue()/($P{totalScenarioCount}.floatValue()-$P{totalScenarioSkipped}.floatValue()))*100]]></variableExpression>
+	</variable>
+	<variable name="OverAllPassRate" class="java.lang.String">
+		<variableExpression><![CDATA[$P{passPercentageCriteriaKey}.equals("TESTCASE") || $P{passPercentageCriteriaKey}.equals("TESTSTEP") ? $P{overallPassRate}:$V{TotalScenarioPassedFloat}.intValue()]]></variableExpression>
+	</variable>
+	<variable name="OverAllExecutionRate" class="java.lang.String">
+		<variableExpression><![CDATA[$P{passPercentageCriteriaKey}.equals("TESTCASE") || $P{passPercentageCriteriaKey}.equals("TESTSTEP") ? $P{overallExecutionRate}:$V{TotalScenarioPassedFloat}.intValue()]]></variableExpression>
+	</variable>
+	<variable name="Logo" class="java.lang.String">
+		<initialValueExpression><![CDATA["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"]]></initialValueExpression>
+	</variable>
+	<variable name="TestCaseExecuted" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[$F{passedCount} + $F{failedCount} - $F{noRunCount}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="166" splitType="Stretch">
+			<frame>
+				<reportElement style="iHeaderLine" mode="Opaque" x="0" y="0" width="1200" height="90" uuid="d851748d-9b9b-4151-bd23-467c8e010592"/>
+				<textField>
+					<reportElement x="5" y="68" width="193" height="22" forecolor="#FFFFFF" uuid="05538796-9db2-4fc5-80d0-9ee770b859c5"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Calibri" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["CATS " +$P{Version}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+					<reportElement x="911" y="58" width="239" height="22" forecolor="#FFFFFF" uuid="5c17d3f6-fde3-4737-8cbd-9fba8513a192"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total Time Taken: " + $P{executionTime}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+					<reportElement x="911" y="38" width="239" height="22" forecolor="#FFFFFF" uuid="f45a723b-6712-4be6-81f8-6f60c2754fa5"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Ended at: " + new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+					<reportElement x="911" y="18" width="239" height="22" forecolor="#FFFFFF" uuid="fb93343e-95db-4cb0-a9fc-226008d69b6c"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Started at: " + $P{startTime}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="iWhiteFont" x="217" y="0" width="674" height="90" uuid="47df91cc-3546-40a0-aeb2-9dfeba11721b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cambria" size="30" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{projectName}]]></textFieldExpression>
+				</textField>
+				<image onErrorType="Blank">
+					<reportElement x="5" y="3" width="193" height="77" uuid="1ba175cd-6a7a-4477-b18e-621e2650637a"/>
+					<imageExpression><![CDATA[new ByteArrayInputStream(Base64.decodeBase64($V{Logo}.getBytes()))]]></imageExpression>
+				</image>
+			</frame>
+			<rectangle>
+				<reportElement style="iHeaderLine" mode="Opaque" x="0" y="110" width="1200" height="10" uuid="e31e65fc-08b6-4aab-bda3-f76b17c7d162"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="iHeaderLevel1" mode="Opaque" x="0" y="120" width="1200" height="36" forecolor="#FFFFFF" uuid="ee87c8b8-55a7-466d-a005-12ec6e5d5c1e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ EXECUTIVE SUMMARY REPORT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="233" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="390" height="224" uuid="3dda6a6f-7db6-4ee6-a679-a951e5270a7a"/>
+				<frame>
+					<reportElement style="suiteHeadingColorDecision" x="0" y="0" width="390" height="82" uuid="0153fd69-508f-4a34-ae7d-e20e45b2b73e"/>
+					<textField hyperlinkType="Reference" hyperlinkTarget="Blank">
+						<reportElement style="suiteHeadingColorDecision" mode="Opaque" x="0" y="0" width="390" height="82" uuid="99c2fbc1-8d26-499a-a122-dd63a5fb7013"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="22" isBold="true" isUnderline="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{testSuite}]]></textFieldExpression>
+						<hyperlinkReferenceExpression><![CDATA[$F{testSuiteReportLink}]]></hyperlinkReferenceExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement style="suiteNameColorDecision" x="0" y="82" width="390" height="142" uuid="5be0006f-0efa-497f-bff9-76e6f6cd88e4"/>
+					<textField isBlankWhenNull="true">
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="120" width="212" height="22" uuid="f5fbd5b8-79fb-43e9-ab28-e83f2d007bae"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{suiteExecutionTime}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="151" y="0" width="25" height="22" uuid="4e479ec7-5ca9-4578-bf72-1c97b5d9fd7a"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="0" width="212" height="22" uuid="1bf2e0ea-ade3-45a0-bae1-18e1b604cf7c"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{release}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="24" width="212" height="22" uuid="b6af63f6-33c7-4214-81d1-7b6aa661e851"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{platformInfo}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="120" width="150" height="22" uuid="4a511372-a352-4cd7-8854-b9b8a3a4fdcb"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Duration]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="0" width="150" height="22" uuid="f8661f5f-6417-46e5-ab8a-35e8f40c80f7"/>
+						<textElement verticalAlignment="Top">
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Release]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="48" width="150" height="22" uuid="e209a1ad-ee51-4b32-9704-a47cea0a547d"/>
+						<textElement verticalAlignment="Top">
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Successful Scenario ]]></text>
+					</staticText>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="72" width="212" height="22" uuid="9b110543-cd1e-47ae-95da-253132e720e1"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{passedCount}.toString()+ " of " + $F{testcaseCount} + " [ " +$F{passPercentage} + " ]"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="48" width="212" height="22" uuid="3b62e782-db92-4e94-83fd-cb7bbf1dc73f"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{scenarioCount} - ($F{scenarioFailedCount} + $F{scenarioSkipCount})+ " of "+$F{scenarioCount} +" [ "+$F{scenarioPassPercentage}+" ]"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="176" y="96" width="212" height="22" uuid="35bf8ea1-b96e-4e5f-812b-0e88f6559c97"/>
+						<textElement>
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{executionPercentage}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="72" width="150" height="22" uuid="267ebf88-ffb9-424a-9585-00bde761c3aa"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{reportCriteriaKey}.equals( "TESTCASE" )?"Successful Test Case ":"Successful Test Step "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="96" width="150" height="22" uuid="f7b69d97-5975-46ae-8815-d8c3b75ea54e"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{reportCriteriaKey}.equals( "TESTCASE" )?"Test Case Execution %":"Test Step Execution"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement style="iThemeFontColor" mode="Transparent" x="1" y="24" width="150" height="22" uuid="30b4f6e3-fc64-4aac-94fa-3bc2949c8816"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{channel}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="151" y="48" width="25" height="22" uuid="659d7041-6aaf-4994-b2a1-e9c82ad4d79e"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="151" y="24" width="25" height="22" uuid="300f1586-b4e7-4f9d-9d57-e5fe05f541f4"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="151" y="72" width="25" height="22" uuid="a3bba6d1-b61d-4676-91e1-5da5ae8aa181"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="151" y="96" width="25" height="22" uuid="761fed77-56be-44b8-a26d-4a934841ed54"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="151" y="120" width="25" height="22" uuid="805ead29-6809-4bdb-9fd0-e0e5a8973fbc"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="400" splitType="Immediate">
+			<elementGroup/>
+			<rectangle>
+				<reportElement style="iHeaderLine" mode="Opaque" x="0" y="1" width="1200" height="11" uuid="e8726051-1cf2-4859-bb82-5d1f8edea420"/>
+			</rectangle>
+			<frame>
+				<reportElement style="overAllColorDecision" x="0" y="12" width="1200" height="36" uuid="1092ae76-a22b-4cea-b3fe-b507ee14d9d9"/>
+				<staticText>
+					<reportElement style="iWhiteFont" x="0" y="0" width="260" height="36" uuid="255ede93-1635-4715-89e1-42996a9b7948">
+						<printWhenExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) <= $P{failPercentageThreshold}]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Failed!!! ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="iWhiteFont" x="0" y="0" width="255" height="36" uuid="b34fb5a6-f92a-446c-adfd-f3aaa50e018f">
+						<printWhenExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) >= $P{passPercentageThreshold}]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Execution Successful!!!]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="iWhiteFont" x="0" y="0" width="250" height="36" uuid="92073ee5-df8e-4b3d-b18d-1c980d3c9044">
+						<printWhenExpression><![CDATA[Float.parseFloat($V{OverAllPassRate}) > $P{failPercentageThreshold} && Float.parseFloat($V{OverAllPassRate}) < $P{passPercentageThreshold}]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Warning!!!]]></text>
+				</staticText>
+				<textField pattern="###0.00">
+					<reportElement style="iWhiteFont" x="384" y="0" width="336" height="36" uuid="d78ef87c-f303-467d-8b72-a4ff8ad44dc6"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Cambria" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{passPercentageCriteriaKey} +  " Pass Rate : " + String.format("%.2f",Float.parseFloat($V{OverAllPassRate})) + " %"]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00">
+					<reportElement style="iWhiteFont" x="766" y="0" width="418" height="36" uuid="51c44f55-e2db-41ce-94ee-59e80eb9610a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Cambria" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{passPercentageCriteriaKey} +  " Execution Rate : " + String.format("%.2f",Float.parseFloat( $V{OverAllExecutionRate})) + " %"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="iHeaderLine" mode="Transparent" x="0" y="67" width="1200" height="290" uuid="4c3333b8-48a7-4ff1-a17b-1b8a3ac00b49">
+					<printWhenExpression><![CDATA[!("NO".equalsIgnoreCase($P{displayManualMapping}))]]></printWhenExpression>
+				</reportElement>
+				<rectangle>
+					<reportElement style="iHeaderLine" mode="Opaque" x="0" y="1" width="1200" height="10" uuid="1e2ba566-3f13-4651-9fc1-39a980785a65"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="iHeaderLevel1" mode="Opaque" x="0" y="11" width="1200" height="36" forecolor="#FFFFFF" uuid="f89d51f7-c285-4874-9d8e-37c4ada9bec9"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ MANUAL MAPPING REPORT]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table" x="0" y="84" width="460" height="34" isRemoveLineWhenBlank="true" uuid="e9727a20-2c1a-44b4-8e1d-16aa8a8abdd4"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="Table Dataset 1" uuid="d38d7899-110c-4578-9adf-40a2c7044f6b">
+							<datasetParameter name="CurrentPass">
+								<datasetParameterExpression><![CDATA[$P{CurrentPass}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="CurrentFail">
+								<datasetParameterExpression><![CDATA[$P{CurrentFail}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="CurrentSkipped">
+								<datasetParameterExpression><![CDATA[$P{CurrentSkipped}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="CurrentPartiallySkipped">
+								<datasetParameterExpression><![CDATA[$P{CurrentPartiallySkipped}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[$P{currentRunDataSource}]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="6552785a-2568-4c76-80d4-7574006d2499">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="90" height="31" uuid="0911d2fa-eec6-4fa0-98c7-3937660ac78c"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[CONFIG]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="30" uuid="9bad8efc-4fac-400f-8a07-041b6c6605c5"/>
+									<textFieldExpression><![CDATA[$F{config}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="d4e6fba4-b7e7-4c49-b264-0f7f017e130e">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="d98d8f64-6124-4d3c-8d8d-3ee3b94899b3"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[PASSED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="30" uuid="b44b7d58-e75d-4f7f-9fd4-e6ca3e019ec3"/>
+									<textFieldExpression><![CDATA[$F{passed}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="c88b0235-65ad-4360-94e4-186f8115942a">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="212f88f5-525b-472d-938b-0f95ef5e55bd"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[FAILED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="30" uuid="c079db95-2aec-40c8-9d70-058aa994bb25"/>
+									<textFieldExpression><![CDATA[$F{failed}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="600b4a62-69be-4374-815e-5b920306413e">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="fbbd29a5-e653-44e3-85b4-34e5179ec16a"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[SKIPPED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="30" uuid="5534fa22-fc4e-4725-9193-dac6a0306b4d"/>
+									<textFieldExpression><![CDATA[$F{skipped}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="b927ef66-54eb-4b47-ac43-fb792fc2bb0c">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="e1d4d8c7-f757-41ac-bd92-40d6fbec3af5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[PARTIALLY SKIPPED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="30" uuid="014316b2-9142-4f78-96ba-d4dd1fa24af8"/>
+									<textFieldExpression><![CDATA[$F{partiallySkipped}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="0f4e7de9-12c4-41d8-b947-dc78c622980f">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="90" height="30" uuid="414ecd5a-0b14-4145-a7a4-ebd965912d69"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[NO RUN]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="30" uuid="d7390633-bb19-4327-b04f-c33005653086"/>
+									<textFieldExpression><![CDATA[$F{noRun}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<componentElement>
+					<reportElement mode="Transparent" x="570" y="85" width="460" height="34" uuid="92201f34-8d77-4eeb-9ef4-fd66ee9438ee"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="Table Dataset 2" uuid="920c62a5-0542-447e-a5bf-f07e085ce3ab">
+							<datasetParameter name="ConsolidatedPass">
+								<datasetParameterExpression><![CDATA[$P{ConsolidatedPass}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="ConsolidatedFail">
+								<datasetParameterExpression><![CDATA[$P{ConsolidatedFail}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="ConsolidatedSkipped">
+								<datasetParameterExpression><![CDATA[$P{ConsolidatedSkipped}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="ConsolidatedPartiallySkipped">
+								<datasetParameterExpression><![CDATA[$P{ConsolidatedPartiallySkipped}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="ConsolidatedNoRun">
+								<datasetParameterExpression><![CDATA[$P{ConsolidatedNoRun}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[$P{consolidatedRunDataSource}]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="92" uuid="158478d7-e853-4859-b3e4-23e1d2458421">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="9ea20dc2-02ec-4d89-92ed-f5cdad8ad73f"/>
+									<text><![CDATA[PASSED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="24" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="24" uuid="df029924-3ee3-47a4-b15f-702dd7744cfd"/>
+									<textFieldExpression><![CDATA[$F{passed}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="54d5069f-5681-40c0-bf75-82d75b1c65a8">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="6a64074b-2dda-455d-8b6a-a83f993a6805"/>
+									<text><![CDATA[FAILED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="24" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="24" uuid="ad6620ff-e6df-4777-bced-2331a33eba63"/>
+									<textFieldExpression><![CDATA[$F{failed}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="505e85f7-387f-4f44-9c00-f891882c5a77">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="2c6a6a89-60b9-437b-ae53-19283e741453"/>
+									<text><![CDATA[SKIPPED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="24" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="24" uuid="af472441-5511-4ceb-988e-4cebd9ec797b"/>
+									<textFieldExpression><![CDATA[$F{skipped}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="92" uuid="9c0c9c2a-05db-48ec-85a8-5209ccd4ad8b">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="49688e04-b818-4b8b-9d70-8c43d18d1a26"/>
+									<text><![CDATA[PARTIALLY SKIPPED]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="24" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="92" height="24" uuid="7ee47a06-69ee-47ae-bd83-c4804f88acaf"/>
+									<textFieldExpression><![CDATA[$F{partiallySkipped}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="94" uuid="0b507548-d8cc-49e2-ad21-f5560871d214">
+							<jr:columnHeader height="31" rowSpan="1">
+								<staticText>
+									<reportElement style="iTableColumnHeader" mode="Opaque" x="0" y="0" width="92" height="30" uuid="47134e18-a0fb-465f-8a78-4aa6d4190393"/>
+									<text><![CDATA[NO RUN]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="24" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="94" height="24" uuid="2f38a97a-9e42-4263-ac01-8c8f613d3fd5"/>
+									<textFieldExpression><![CDATA[$F{noRun}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement style="iHeadLevel2" mode="Opaque" x="570" y="53" width="460" height="30" uuid="aaf55213-0d0c-448c-94d8-94421d1a3baa"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Consolidated Run Report]]></text>
+				</staticText>
+				<break>
+					<reportElement x="0" y="82" width="100" height="1" uuid="f4158075-41c3-4f91-aa4b-6e6e0fb25e38"/>
+				</break>
+				<staticText>
+					<reportElement style="iHeadLevel2" mode="Opaque" x="0" y="53" width="547" height="30" uuid="378e44f3-2c0c-47a2-803a-1c23e050e2ab"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Current Run Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="21" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,131 @@
+{
+	"startDate": 12232.444,
+	"port": "80808",
+	"host": "local",
+	"description": null,
+	"datetime": "Mon Sep 18 19:19:42 IST 2017",
+	"ipaddress": null,
+	"username": "Roopesh Tayaloor",
+	"batchFolderName": {
+		"services": {
+				"type": "iPhone",
+				"number": ["abc", "def"]
+			}
+	},
+	 
+	"configs": {
+		"CONFIG_1": {
+			"id": "CONFIG_1",
+			"services": [{
+				"type": "mi",
+				"number": ["the", "xyz"]
+			}, {
+				"type": "nokia",
+				"number": [222, 2343, 6, 7, 8]
+			}],
+			"device": {
+				"id": "1",
+				"appPath": "",
+				"port": "4723",
+				"platform": "Android",
+				"protocol": "http",
+				"version": "4.4.4",
+				"bundleid": "",
+				"description": "config details for andriod",
+				"name": "SamsungGalaxyS5",
+				"browser": "Chrome",
+				"context": "/wd/hub",
+				"driver": "AndroidDevice",
+				"server": "127.0.0.1",
+				"packagename": "",
+				"activity": "",
+				"remoteWebDriverURL": "",
+				"capabilities": "",
+				"analytics": null,
+				"udid": ""
+			},
+			"viewPort": "",
+			"sql": {
+				"port": null,
+				"username": null,
+				"host": null,
+				"queries": null,
+				"driver": null,
+				"ipaddress": null,
+				"password": null
+			}
+		},
+		"CONFIG_Chrome": {
+			"id": "CONFIG_Chrome",
+			"services": ["abc", "def", "hig"],
+			"device": {
+				"id": "Chrome",
+				"appPath": "",
+				"port": "",
+				"platform": "",
+				"protocol": "",
+				"version": "",
+				"bundleid": "",
+				"description": "Config for SauceLabs",
+				"name": "Chrome on Windows",
+				"browser": "",
+				"context": "",
+				"driver": "SauceLabsRemoteWebDriver",
+				"server": "",
+				"packagename": "",
+				"activity": "",
+				"remoteWebDriverURL": "http://roopesh_t:7a2c78fd-8108-47d7-ba59-828f7e85902c@ondemand.saucelabs.com:80/wd/hub",
+				"capabilities": "browserName:Chrome,\\r\\nplatform:Windows 7,\\r\\nversion:47.0,autoAcceptAlerts:True,acceptSslCerts:True",
+				"analytics": null,
+				"udid": ""
+			},
+			"viewPort": "",
+			"sql": {
+				"port": null,
+				"username": null,
+				"host": null,
+				"queries": null,
+				"driver": null,
+				"ipaddress": null,
+				"password": null
+			}
+		},
+		"CONFIG_Firefox": {
+			"id": "CONFIG_Firefox",
+			"services": [],
+			"device": {
+				"id": "Firefox",
+				"appPath": "",
+				"port": "",
+				"platform": "",
+				"protocol": "",
+				"version": "",
+				"bundleid": "",
+				"description": "Config for SauceLabs",
+				"name": "Firefox on Windows",
+				"browser": "",
+				"context": "",
+				"driver": "SauceLabsRemoteWebDriver",
+				"server": "",
+				"packagename": "",
+				"activity": "",
+				"remoteWebDriverURL": "http://roopesh_t:7a2c78fd-8108-47d7-ba59-828f7e85902c@ondemand.saucelabs.com:80/wd/hub",
+				"capabilities": "browserName:Firefox,version:35.0,\\r\\nplatform:Windows 7,seleniumVersion:2.53.0",
+				"analytics": null,
+				"udid": ""
+			},
+			"viewPort": "",
+			"sql": {
+				"port": null,
+				"username": null,
+				"host": null,
+				"queries": null,
+				"driver": null,
+				"ipaddress": null,
+				"password": null
+			}
+		}
+
+	}
+
+}

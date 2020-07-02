@@ -1,0 +1,35 @@
+{
+	"Chrome": {
+		"description": "Desktop Chrome",
+		"channel": "Desktop",
+		"browser": "Chrome"
+	},
+	"firefox": {
+		"description": "Desktop FireFox",
+		"channel": "Desktop",
+		"browser": "firefox"
+	},
+	"CMEiPhone": {
+		"description": "Chrome mobile emulator for Apple iPhone 6 plus device",
+		"channel": "Mobile",
+		"browser": "Chrome",
+		"name": "iPhone 6 Plus",
+		"driver": "ChromeMobileEmulator"
+	},
+	"iOSSafari": {
+		"description": "Safari on iOS device",
+		"channel": "Mobile",
+		"browser": "Safari",
+		"name": "srapris iPhone",
+		"driver": "iOS",
+		"version": "10.2.1",
+		"platform": "iOS",
+		"udid": "87649b4f0db94a084576652c08728ee96bbaa646",
+		"bundleid": "com.sapientnitro.in.mcd.Arch",
+		"appPath": "/Users/user/Library/Developer/Xcode/DerivedData/SafariLauncher-hddfyrkhiwgxzwedanrfcaigmunf/Build/Products/Debug-iphoneos/SafariLauncher.app",
+		"protocol": "http",
+		"server": "0.0.0.0",
+		"port": 4723,
+		"context": "/wd/hub"
+	}
+}

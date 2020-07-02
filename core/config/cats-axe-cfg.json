@@ -1,0 +1,32 @@
+{
+	"default": {
+		"disableRule": [],
+		"exceptionRule": [],
+		"limitRules": [],
+		"limitTags": [],
+		"includeSelector": [],
+		"excludeSelector": [],
+		"absolutePath": true,
+		"iframes": true,
+		"restoreScroll": true,
+		"xpath": false,
+		"absolutePaths": false,
+		"frameWaitTime": 60000,
+		"target": {
+			"urls": [],
+			"inputFiles": [],
+			"sitemap": [],
+			"rule": {
+				"recursive": true,
+				"baseUrlRestriction": true,
+				"exclude": "",
+				"include": ""
+			}
+		}
+	},
+	
+	"custom1" : {
+		"limitTags": ["wcag2a"]
+	}
+	
+}

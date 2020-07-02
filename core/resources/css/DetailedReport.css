@@ -1,0 +1,119 @@
+#-------------------------------------------------------------------------------
+# © Copyright  2019 Publicis Sapient. All rights reserved
+# 
+# Permission to copy, modify and/or redistribute this program requires prior 
+# written consent from Publicis Sapient. 
+# 
+# Above copyright notice and permission notice must appear in all copies.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS  "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# CONTRIBUTOR: CATS|Core@publicissapient.com
+#-------------------------------------------------------------------------------
+/**
+Table Caption edit the font family,weight,color
+
+**/
+caption {
+	margin-top: 25px;
+	font-family: verdana;/** **/
+	text-align: center;
+	text-transform: capitalize;
+	font-weight: bolder; /** **/
+	color: black; /** **/
+}
+
+/**
+Table Scenario header edit the font siZe, family,weight,color
+Also background color of Table Headers
+**/
+table tr th {
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bolder;
+	background-color: #e0e09d;
+	color: black;
+}
+/**
+Table TestCase header edit the background-color of test cases of Non BDD Report
+
+**/
+#testCases th {
+	font-family: calibri;
+	text-transform: capitalize;
+	cursor:pointer;
+	color:#1e2c42;
+	background-color: #d4e2e8;
+}
+#testCasestrue th {
+	font-family: calibri;
+	text-transform: capitalize;
+	cursor:pointer;
+	color:#1e2c42;
+	background-color: #d4e2e8;
+}
+#testCasesskip th {
+	font-family: calibri;
+	text-transform: capitalize;
+	cursor:pointer;
+	color:#1e2c42;
+	background-color: #d4e2e8;
+}
+
+
+/**
+  Table TestCase header edit the background-color of test cases for BDD Report
+         **/
+         #testCasesPASS th {
+	 font-family: calibri;
+	 text-transform: capitalize;
+         cursor:pointer;
+	 color:#1e2c42;
+         background-color: #d4e2e8;
+         }
+         #testCasesFAIL th {
+ 	 font-family: calibri;
+	 text-transform: capitalize;
+         cursor:pointer;
+	 color:#1e2c42;
+         background-color: #d4e2e8;
+         }
+         #testCasesSKIPPED th {
+	 font-family: calibri;
+	 text-transform: capitalize;
+	 color:#1e2c42;
+         background-color: #d4e2e8;
+         }
+         #testCasesUNDEFINED th {
+	 font-family: calibri;
+	 text-transform: capitalize;
+	 color:#1e2c42;
+         background-color: #d4e2e8;
+         }
+
+
+/**
+Table TestCase header edit the font family,size,weight,color
+
+**/
+tr th span {
+	
+	font-family: calibri;
+	text-transform: capitalize;
+}
+
+/**
+Table Data edit the font family,size,weight,color
+
+**/
+td p {
+	
+}
+
+/**
+Edit the background color of table eventh rows
+**/
+tr:nth-child(even) {
+	background-color: #f9f9db;
+}

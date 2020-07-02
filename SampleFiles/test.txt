@@ -1,0 +1,3 @@
+A test case is a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly.
+
+The process of developing test cases can also help find problems in the requirements or design of an application.

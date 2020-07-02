@@ -1,0 +1,8 @@
+.browse{
+	-fx-graphic: url("../imagesfx/browsefile.png");
+	-fx-padding: 0px;
+}
+.fetch{
+	-fx-graphic: url("../imagesfx/lookup.png");
+	-fx-padding: 0px;
+}

@@ -1,0 +1,20 @@
+{
+	"scenarios": [
+		{
+			"id": "AMZDTP",
+			"name": "Amazon Add to Cart Desktop",
+			"description": "Verify user able to add item to cart and verify the Item in the cart and shipping message",
+			"testcases": [
+				"AMZ_Launch",
+				"AMZ_SearchPrd",
+				"AMZ_SelectPrd",
+				"AMZ_SwitchWnd",
+				"AMZ_VerifyPrdDetail",
+				"AMZ_AddToCart",
+				"AMZ_VerifyCart",
+				"AMZ_Quit"
+			],
+			"scenariovariables": "CHNL=DTP"
+		}
+	]
+}

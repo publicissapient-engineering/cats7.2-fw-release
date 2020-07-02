@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CATSReport" pageWidth="1300" pageHeight="1684" whenNoDataType="AllSectionsNoDetail" columnWidth="1260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" isIgnorePagination="true" uuid="724eb580-ae75-4e05-b92b-5b3713ba273b">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="13"/>
+	<property name="net.sf.jasperreports.default.font.name" value="DejaVu Sans"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<import value="org.apache.commons.codec.binary.Base64"/>
+	<style name="iThemeFontColor" isDefault="true" forecolor="#024671"/>
+	<style name="iTableData" style="iThemeFontColor" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="2">
+			<pen lineWidth="0.5" lineColor="#024671"/>
+			<topPen lineWidth="0.5" lineColor="#024671"/>
+			<leftPen lineWidth="0.5" lineColor="#024671"/>
+			<bottomPen lineWidth="0.5" lineColor="#024671"/>
+			<rightPen lineWidth="0.5" lineColor="#024671"/>
+		</box>
+	</style>
+	<style name="iHeaderLine" mode="Opaque" forecolor="#000000" backcolor="#024671" fill="Solid" hAlign="Left">
+		<box>
+			<pen lineStyle="Double" lineColor="#10222B"/>
+			<topPen lineStyle="Double" lineColor="#10222B"/>
+			<leftPen lineStyle="Double" lineColor="#10222B"/>
+			<bottomPen lineWidth="5.0" lineStyle="Double" lineColor="#10222B"/>
+			<rightPen lineStyle="Double" lineColor="#10222B"/>
+		</box>
+	</style>
+	<style name="iHeaderLevel1" mode="Opaque" forecolor="#FFFFFF" backcolor="#3778A5" hAlign="Left" vAlign="Middle" pattern="" fontName="Cambria" fontSize="18" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="5"/>
+	</style>
+	<style name="iHeadLevel2" style="iThemeFontColor" mode="Opaque" backcolor="#96D2F5" fill="Solid" hAlign="Center" vAlign="Middle" pattern="" fontName="Perpetua Titling MT" fontSize="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="iTableColumnHeader" style="iThemeFontColor" mode="Opaque" backcolor="#E1F5FF" fill="Solid" hAlign="Center" vAlign="Middle" fontName="Perpetua Titling MT" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="LOGO" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Cambria" fontSize="28" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="suiteStartTime" class="java.util.Date"/>
+	<parameter name="suiteEndTime" class="java.util.Date"/>
+	<parameter name="intervalMinutes" class="java.lang.String"/>
+	<parameter name="projectName" class="java.lang.String"/>
+	<field name="summary" class="java.util.List"/>
+	<field name="scenarioRows" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="146">
+			<subreport>
+				<reportElement x="0" y="0" width="1260" height="146" uuid="4297c1f0-1f55-4eb1-a99a-86c1eef10cb3"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="intervalMinutes">
+					<subreportParameterExpression><![CDATA[$P{intervalMinutes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="suiteEndTime">
+					<subreportParameterExpression><![CDATA[$P{suiteEndTime}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="projectName">
+					<subreportParameterExpression><![CDATA[$P{projectName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="suiteStartTime">
+					<subreportParameterExpression><![CDATA[$P{suiteStartTime}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+		            ($F{summary})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CATSReport_summary.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="146" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="1260" height="146" uuid="1325cc10-a41c-4df9-9271-71489fe522d9"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+		            ($F{scenarioRows})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CATSReport_Scenario.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="50"/>
+	</lastPageFooter>
+</jasperReport>

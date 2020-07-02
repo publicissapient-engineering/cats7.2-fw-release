@@ -1,0 +1,53 @@
+Navigation:
+  FlightAndHoliday:
+    xpath: //a[@data-nav-id='navFltContent']
+    htmlId: countrycode
+  MngMyBooking:
+    xpath: //a[@data-nav-id='navMMBContent']
+  Info:
+    xpath: //a[@data-nav-id='navInfoContent']
+  ExecutiveClub:
+    xpath: //a[@data-nav-id='navExecContent']
+  BizzTravel:
+    xpath: //a[@data-nav-id='navCompanyContent']
+  menuChangeLang:
+    xpath: //a[@data-nav-id='navCountryContent']
+  lnkChangeLang:
+    xpath: //div[@id='navCountryContent']//a[contains(@data-di-id,'di-id-d8463394')][contains(@href, 'source=MNVLNG')]
+Footer:
+  MobileSite:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-24581075-')][contains(@href,'device-mobile')]
+  HelpAndContact:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-24581075-')][contains(@href,'source=BOT_contactus')]
+  Accessibility:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-711bce7e-')][contains(@href,'source=BOT_accessibility')]
+  Security:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-a521870b-')][contains(@href,'source=BOT_website-security')]
+  PrivacyPolicy:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-24581075-')][contains(@href,'source=BOT_privacy-policy')]
+  Legal:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-86cd7dd-')][contains(@href,'source=BOT_legal')]
+  About:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-711bce7e-')][contains(@href,'about-british-airways')]
+  Media:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-4f6d8e8e-')][contains(@href,'/mediacentre.britishairways')]
+  Career:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-32f09a07-')][contains(@href,'jobs.ba.com')]
+  CorpResp:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-188fc992-')][contains(@href,'BOT_corporate-responsibility')]
+  ModenSlavery:
+    xpath: //ul[@class='siteLinks']//a[contains(@data-di-id, 'di-id-e50d3307-')][contains(@href,'BWT7702_IAG_Modern_Slavery_A4P')]
+ChangeCtry:
+  country:
+    htmlId: countrycode  
+  language:
+    htmlId: languagecode  
+  submit:
+    xpath: //input[@type='submit'][@value='Submit']
+ChangeConfirm:
+  back:
+    xpath: //div[@id='languageModal']//a[@class='modalReturnBtn secondary modalReturn']
+  proceed:
+    xpath: //div[@id='languageModal']//a[@class='modalContinueBtn primary']
+  heading:
+    htmlId: languageModalLabel

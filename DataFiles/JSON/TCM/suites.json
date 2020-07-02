@@ -1,0 +1,14 @@
+{
+	"suites": [
+		{
+			"release": "Functional",
+			"testSuite": "AmazonDekstop",
+			"scenarios": "SCENARIOS_AMZDTP",
+			"description": "Amazon Add to Cart on Desktop",
+			"run": "Y",
+			"config": "CONFIG_Chrome",
+			"batch": "B01",
+			"suitelables": "regression"
+		}
+	]
+}
