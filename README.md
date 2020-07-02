@@ -1,4 +1,4 @@
-# CATS Framework.   License:Apache 2.0
+# CATS Framework.                                          License:Apache 2.0
 
 Comprehensive Automation Test Solution (CATS) is an open source test automation framework created and maintained by the *Publicis Sapient QE CoE Team*. CATS framework is a packaged solution that supports
 
