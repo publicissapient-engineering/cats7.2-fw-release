@@ -9,6 +9,7 @@ Mobile Web  |Analytics  |SOAP Services          |Test Rail              |Browser
 Mobile App  |Creative   |Browser Micro-Services |Test Link              |Docker Execution
 Windows Application |Image Comparison |FTP/SFTP |Jenkins                |Grid Execution
 Image Based |Page Metrics   | File I/O          |Bamboo                 |Cloud Headless
+Java Application|Visual Regression||Zephyr|pCloudy|
 
 CATS framework can be used by both non-technical users (Functional QA, BA or PM) or technical user (Automation QE, Developer). Based on the technical competency the scripting language can be choosen __*Excel*__, __*JSON*__, __*YAML*__, __*JAVA*__
 
